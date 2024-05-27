@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".RegisterActivity"
+    android:background="@color/back_primary">
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- Регистрация -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Регистрация"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp" />
+
+    <!-- ФИО -->
+    <EditText
+        android:id="@+id/register_fio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ФИО"
+        android:textColorHint="@color/hint"
+        android:textColor="@color/white"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:inputType="textPersonName" />
+
+    <!-- Email -->
+    <EditText
+        android:id="@+id/register_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-mail"
+        android:textColorHint="@color/hint"
+        android:textColor="@color/white"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="16dp" />
+
+    <!-- Телефон -->
+    <EditText
+        android:id="@+id/register_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Телефон"
+        android:textColorHint="@color/hint"
+        android:textColor="@color/white"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:inputType="phone"
+        android:layout_marginTop="16dp" />
+
+    <!-- Пароль -->
+    <EditText
+        android:id="@+id/register_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Пароль"
+        android:textColorHint="@color/hint"
+        android:textColor="@color/white"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:inputType="textPassword"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/register_password2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите пароль ещё раз"
+        android:textColorHint="@color/hint"
+        android:textColor="@color/white"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:inputType="textPassword"
+        android:layout_marginTop="16dp" />
+
+    <!-- Кнопка Зарегистрироваться -->
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@color/yellow"
+        android:padding="12dp"
+        android:text="Зарегистрироваться"
+        android:textColor="@color/black"
+        app:rippleColor="@color/yellow_ripple" />
+
+    <!-- Ссылка на Вход -->
+    <TextView
+        android:id="@+id/register_to_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Уже есть аккаунт? Войдите"
+        android:textColor="@color/yellow"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:onClick="navigateToLogin" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

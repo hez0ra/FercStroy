@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".LoginActivity"
+    android:background="@color/back_primary">
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- Логин -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Логин"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp" />
+
+    <!-- Email -->
+    <EditText
+        android:id="@+id/login_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-mail или номер телефона"
+        android:textColorHint="@color/hint"
+        android:textColor="@color/white"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:inputType="textEmailAddress" />
+
+    <!-- Пароль -->
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Пароль"
+        android:textColorHint="@color/hint"
+        android:textColor="@color/white"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:inputType="textPassword"
+        android:layout_marginTop="16dp" />
+
+    <CheckBox
+        android:id="@+id/login_stay_logged_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Не выходить из аккаунта"
+        android:textColor="@color/white"
+        android:layout_marginTop="16dp" />
+
+    <!-- Кнопка Войти -->
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Войти"
+        android:textColor="@color/black"
+        android:background="@color/yellow"
+        android:layout_marginTop="32dp"
+        android:padding="12dp" />
+
+    <!-- Ссылка на регистрацию -->
+    <TextView
+        android:id="@+id/login_to_registration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Нет аккаунта? Зарегистрируйтесь"
+        android:textColor="@color/yellow"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:onClick="navigateToRegister" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

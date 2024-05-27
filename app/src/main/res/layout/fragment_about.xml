@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/back_primary"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@color/back_primary"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Группа Компаний FERCSTROY"
+        android:textColor="@color/white"
+        android:padding="8dp"
+        android:autoSizeMinTextSize="18dp"
+        android:autoSizeMaxTextSize="24dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+        />
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="@string/about_first"
+        android:textSize="18dp"
+        android:paddingHorizontal="12dp"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_background"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:text="ООО «Дифман-М»"/>
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_background"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:text="ООО «ЕСКД Групп»"/>
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_background"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:text="ООО «Ферцстрой»"/>
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_background"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:text="ООО «ТЕДАС-Групп»"/>
+
+        </GridLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="@string/about_second"
+        android:textSize="14dp"
+        android:paddingHorizontal="12dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/timeline_year_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:textColor="@color/yellow"
+                android:textStyle="bold"
+                android:text="2014"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/timeline_line_1"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:background="@color/yellow"
+                app:layout_constraintTop_toTopOf="@id/timeline_year_1"
+                app:layout_constraintBottom_toBottomOf="@id/timeline_description_1"
+                app:layout_constraintStart_toEndOf="@id/timeline_year_1"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/timeline_title_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:text="Дистрибуция"
+                app:layout_constraintTop_toTopOf="@id/timeline_year_1"
+                app:layout_constraintStart_toEndOf="@id/timeline_line_1"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/timeline_description_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/timeline_2014"
+                app:layout_constraintTop_toBottomOf="@id/timeline_title_1"
+                app:layout_constraintStart_toStartOf="@id/timeline_title_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/timeline_year_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:textColor="@color/yellow"
+                android:textStyle="bold"
+                android:text="2016"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/timeline_line_2"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:background="@color/yellow"
+                app:layout_constraintTop_toTopOf="@id/timeline_year_2"
+                app:layout_constraintBottom_toBottomOf="@id/timeline_description_2"
+                app:layout_constraintStart_toEndOf="@id/timeline_year_2"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/timeline_title_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:text="Сервис"
+                app:layout_constraintTop_toTopOf="@id/timeline_year_2"
+                app:layout_constraintStart_toEndOf="@id/timeline_line_2"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/timeline_description_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/timeline_2016"
+                app:layout_constraintTop_toBottomOf="@id/timeline_title_2"
+                app:layout_constraintStart_toStartOf="@id/timeline_title_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/timeline_year_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:textColor="@color/yellow"
+                android:textStyle="bold"
+                android:text="2018"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/timeline_line_3"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:background="@color/yellow"
+                app:layout_constraintTop_toTopOf="@id/timeline_year_3"
+                app:layout_constraintBottom_toBottomOf="@id/timeline_description_3"
+                app:layout_constraintStart_toEndOf="@id/timeline_year_3"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/timeline_title_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:text="Высокотехнологичные отрасли"
+                app:layout_constraintTop_toTopOf="@id/timeline_year_3"
+                app:layout_constraintStart_toEndOf="@id/timeline_line_3"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/timeline_description_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/timeline_2018"
+                app:layout_constraintTop_toBottomOf="@id/timeline_title_3"
+                app:layout_constraintStart_toStartOf="@id/timeline_title_3"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/timeline_year_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:textColor="@color/yellow"
+                android:textStyle="bold"
+                android:text="2020"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/timeline_line_4"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:background="@color/yellow"
+                app:layout_constraintTop_toTopOf="@id/timeline_year_4"
+                app:layout_constraintBottom_toBottomOf="@id/timeline_description_4"
+                app:layout_constraintStart_toEndOf="@id/timeline_year_4"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/timeline_title_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:text="Крупноузловая сборка"
+                app:layout_constraintTop_toTopOf="@id/timeline_year_4"
+                app:layout_constraintStart_toEndOf="@id/timeline_line_4"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/timeline_description_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/timeline_2020"
+                app:layout_constraintTop_toBottomOf="@id/timeline_title_4"
+                app:layout_constraintStart_toStartOf="@id/timeline_title_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/timeline_year_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:textColor="@color/yellow"
+                android:textStyle="bold"
+                android:text="2022"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/timeline_line_5"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:background="@color/yellow"
+                app:layout_constraintTop_toTopOf="@id/timeline_year_5"
+                app:layout_constraintBottom_toBottomOf="@id/timeline_description_5"
+                app:layout_constraintStart_toEndOf="@id/timeline_year_5"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/timeline_title_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:text="Новые филиалы и развитие бренда"
+                app:layout_constraintTop_toTopOf="@id/timeline_year_5"
+                app:layout_constraintStart_toEndOf="@id/timeline_line_5"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/timeline_description_5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/timeline_2022"
+                app:layout_constraintTop_toBottomOf="@id/timeline_title_5"
+                app:layout_constraintStart_toStartOf="@id/timeline_title_5"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/timeline_year_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:textColor="@color/yellow"
+                android:textStyle="bold"
+                android:text="2023"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/timeline_line_6"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:background="@color/yellow"
+                app:layout_constraintTop_toTopOf="@id/timeline_year_6"
+                app:layout_constraintBottom_toBottomOf="@id/timeline_description_6"
+                app:layout_constraintStart_toEndOf="@id/timeline_year_6"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/timeline_title_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:text="Увеличение производства и создание Группы Компаний"
+                app:layout_constraintTop_toTopOf="@id/timeline_year_6"
+                app:layout_constraintStart_toEndOf="@id/timeline_line_6"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/timeline_description_6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/timeline_2023"
+                app:layout_constraintTop_toBottomOf="@id/timeline_title_6"
+                app:layout_constraintStart_toStartOf="@id/timeline_title_6"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/back_primary"
+    android:layout_height="60dp">
+    
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp">
+        
+        <View
+            android:id="@+id/footer_line_first"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:background="#303030"/>
+
+        <View
+            android:id="@+id/footer_line_second"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:background="#303030"/>
+
+        <View
+            android:id="@+id/footer_line_third"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:background="#303030"/>
+        
+    </LinearLayout>
+    
+    
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <ImageView
+            android:id="@+id/footer_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/icon_home"
+            android:padding="8dp"
+            android:contentDescription="Home"
+            app:tint="#FFFFFF" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#303030"/>
+    
+        <ImageView
+            android:id="@+id/footer_about"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/icon_info"
+            android:padding="8dp"
+            android:contentDescription="Info"
+            app:tint="#FFFFFF" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#303030"/>
+    
+        <ImageView
+            android:id="@+id/footer_contacts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/icon_contacts"
+            android:padding="8dp"
+            android:contentDescription="Contacts"
+            app:tint="#FFFFFF" />
+        
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

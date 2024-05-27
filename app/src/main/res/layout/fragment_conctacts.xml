@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_primary"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Контакты -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Контакты"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- Карта -->
+        <com.example.fercstroy.CustomMapView
+            android:id="@+id/contacts_map"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"/>
+
+        <!-- Написать нам в мессенджерах -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Написать нам в мессенджерах"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <!-- Мессенджеры -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/contacts_telegram_type"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/icon_telegram_color"
+                    android:padding="8dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Telegram"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:id="@+id/contacts_whatsapp_type"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/icon_whatsapp"
+                    android:layout_marginStart="29dp"
+                    android:padding="8dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WhatsApp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"/>
+
+
+
+            </LinearLayout>
+
+            <!-- Офис в РФ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Офис в РФ"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="г. Москва, ул. Большая почтовая, 26с1, офис 317"
+                android:textColor="@color/white"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+7 999 345 36 06"
+                android:textColor="@color/white"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mail@fercstroy.ru"
+                android:textColor="@color/white"
+                android:paddingBottom="16dp" />
+
+            <!-- Главный офис в РБ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Главный офис в РБ"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="г. Минск, пр-т Независимости, 173, БЦ Футурис"
+                android:textColor="@color/white"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+375 17 399 62 80"
+                android:textColor="@color/white"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="info@fercstroy.ru"
+                android:textColor="@color/white"
+                android:paddingBottom="16dp" />
+
+            <!-- Адрес производства -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Адрес производства"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="РБ, Минский район, п. Городище"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <!-- Свяжитесь с нами -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="32dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Свяжитесь с нами"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:paddingBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Есть вопросы или нужен просчёт проекта? Мы готовы помочь. Заполните форму слева, чтобы получить точную информацию и поддержку от наших специалистов."
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:paddingBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- ФИО -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ФИО *"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:paddingBottom="8dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Введите ваше ФИО"
+                    android:textColorHint="@color/hint"
+                    android:textColor="@color/white"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- E-mail -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="E-mail *"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:paddingBottom="8dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Введите ваш e-mail"
+                    android:textColorHint="@color/hint"
+                    android:textColor="@color/white"
+                    android:inputType="textEmailAddress"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Телефон -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Телефон *"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:paddingBottom="8dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Введите ваш телефон"
+                    android:textColorHint="@color/hint"
+                    android:textColor="@color/white"
+                    android:inputType="phone"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Согласие -->
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Нажимая кнопку «Отправить», я принимаю условия пользовательского соглашения и даю согласие на обработку моих персональных данных на условиях и для целей, определенных в Согласии на обработку персональных данных."
+                    android:textColor="@color/white"
+                    android:paddingBottom="16dp" />
+
+                <!-- Кнопка Отправить -->
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Отправить"
+                    android:backgroundTint="@color/yellow"
+                    android:textColor="@color/black"
+                    android:padding="12dp" />
+
+            </LinearLayout>
+
+
+            <!-- Подписка -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Подписывайтесь:"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <!-- Социальные сети -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/contacts_instagram"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/icon_instagram"
+                    android:background="@drawable/rounded_background"
+                    android:layout_marginEnd="8dp"
+                    android:padding="8dp"/>
+
+                <ImageView
+                    android:id="@+id/contacts_telegram"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/icon_tg"
+                    android:background="@drawable/rounded_background"
+                    android:layout_marginEnd="8dp"
+                    android:padding="8dp"/>
+
+                <ImageView
+                    android:id="@+id/contacts_vk"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/icon_vk"
+                    android:background="@drawable/rounded_background"
+                    android:padding="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
