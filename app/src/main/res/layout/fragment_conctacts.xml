@@ -202,13 +202,15 @@
                     android:paddingBottom="8dp" />
 
                 <EditText
+                    android:id="@+id/contacts_fio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
                     android:hint="Введите ваше ФИО"
-                    android:textColorHint="@color/hint"
-                    android:textColor="@color/white"
                     android:padding="12dp"
-                    android:layout_marginBottom="16dp" />
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/hint"
+                    android:textColorLink="@color/yellow" />
 
                 <!-- E-mail -->
                 <TextView
@@ -220,6 +222,7 @@
                     android:paddingBottom="8dp" />
 
                 <EditText
+                    android:id="@+id/contacts_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Введите ваш e-mail"
@@ -239,6 +242,7 @@
                     android:paddingBottom="8dp" />
 
                 <EditText
+                    android:id="@+id/contacts_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Введите ваш телефон"
@@ -250,6 +254,7 @@
 
                 <!-- Согласие -->
                 <CheckBox
+                    android:id="@+id/contacts_checkbox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Нажимая кнопку «Отправить», я принимаю условия пользовательского соглашения и даю согласие на обработку моих персональных данных на условиях и для целей, определенных в Согласии на обработку персональных данных."
@@ -258,6 +263,7 @@
 
                 <!-- Кнопка Отправить -->
                 <Button
+                    android:id="@+id/contacts_button_send"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Отправить"

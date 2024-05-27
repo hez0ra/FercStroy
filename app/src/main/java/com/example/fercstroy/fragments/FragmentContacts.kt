@@ -8,9 +8,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.fercstroy.ActiveUser
+import com.example.fercstroy.DbHelper
 import com.example.fercstroy.R
+import com.example.fercstroy.User
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -29,8 +35,16 @@ class FragmentContacts : Fragment() {
     var vk: ImageView? = null
     var telegramType: ImageView? = null
     var whatsappType: ImageView? = null
+    var fio: EditText? = null
+    var email: EditText? = null
+    var phone: EditText? = null
+    var btnSend: Button? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_conctacts, container, false)
     }
 
@@ -43,32 +57,79 @@ class FragmentContacts : Fragment() {
         vk = view.findViewById(R.id.contacts_vk)
         telegramType = view.findViewById(R.id.contacts_telegram_type)
         whatsappType = view.findViewById(R.id.contacts_whatsapp_type)
+        fio = view.findViewById(R.id.contacts_fio)
+        email = view.findViewById(R.id.contacts_email)
+        phone = view.findViewById(R.id.contacts_phone)
+        btnSend = view.findViewById(R.id.contacts_button_send)
+
+        if(ActiveUser.getUser() != null){
+            val user = ActiveUser.getUser()
+            fio?.setText(user?.fio)
+            phone?.setText(user?.phone)
+            email?.setText(user?.email)
+        }
 
 
         mapView?.map?.move(CameraPosition(Point(53.941246, 27.667212), 13.0f, 0.0f, 0.0f))
         mapObjects = mapView?.map?.mapObjects
         setMapMarker(53.941246, 27.667212)
 
-        instagram?.setOnClickListener{
+        instagram?.setOnClickListener {
             openLink("https://www.instagram.com/fercstroy/")
         }
-        telegram?.setOnClickListener{
+        telegram?.setOnClickListener {
             openLink("https://t.me/fercgroup")
         }
-        vk?.setOnClickListener{
+        vk?.setOnClickListener {
             openLink("https://vk.com/fercstroy")
         }
-        telegramType?.setOnClickListener{
+        telegramType?.setOnClickListener {
             openLink("http://t.me/ferc_communication")
         }
-        telegramType?.setOnClickListener{
+        whatsappType?.setOnClickListener {
             openLink("https://api.whatsapp.com/send?phone=375293682991")
+        }
+
+        btnSend?.setOnClickListener {
+            val Fio: String = fio?.text.toString().trim()
+            val Phone: String = phone?.text.toString().replace(" ", "")
+            val Email: String = email?.text.toString().trim()
+            if (Fio == "" || Email == "" || Phone == "") {
+                Toast.makeText(requireContext(), "Заполните все поля", Toast.LENGTH_LONG).show()
+            } else if (!isValidFio(Fio)) {
+                fio?.error = "Введите ФИО в формате `Иванов Иван Иванович`"
+            } else if (!isValidEmail(Email)) {
+                phone?.error = "Некорректный email"
+            } else if (!isValidPhone(Phone)) {
+                email?.error = "Введите номер телефона в формате `+375291234568`"
+            } else {
+                fio!!.text.clear()
+                phone!!.text.clear()
+                email!!.text.clear()
+            }
+
         }
 
     }
 
+    fun isValidEmail(email: String): Boolean {
+        val emailRegex = Regex("[a-zA-Z\\d._%+-]+@[a-zA-Z\\d.-]+\\.[a-zA-Z]{2,}")
+        return emailRegex.matches(email)
+    }
+
+    fun isValidFio(fio: String): Boolean {
+        val fioRegex = Regex("[a-zA-Zа-яА-яёЁ]+ [a-zA-Zа-яА-яёЁ]+ [a-zA-Zа-яА-яёЁ]+")
+        return fioRegex.matches(fio)
+    }
+
+    fun isValidPhone(phone: String): Boolean{
+        val phoneRegex = Regex("\\+[0-9]{1,15}")
+        return phoneRegex.matches(phone)
+    }
+
+
     private fun setMapMarker(latitude: Double, longitude: Double) {
-        if (mapObjects != null){
+        if (mapObjects != null) {
             val point = Point(latitude, longitude)
 
             // Масштабируем изображение маркера

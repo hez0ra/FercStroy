@@ -40,7 +40,7 @@ class RegisterActivity : AppCompatActivity() {
             val Pass: String = pass?.text.toString().trim()
             val Pass2: String = pass2?.text.toString().trim()
 
-            if(Fio == "" || Email == "" || Pass == "" || Pass2 == ""){
+            if(Fio == "" || Email == "" || Pass == "" || Pass2 == "" || Phone == ""){
                 Toast.makeText(this, "Заполните все поля", Toast.LENGTH_LONG).show()
             }
             else if(!isValidFio(Fio)){

@@ -47,6 +47,21 @@ class FragmentHeader : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        if(ActiveUser.getUser() != null) {
+            greeting?.text = "Добрый день, ${ActiveUser.getUser()!!.fio.split(" ").let {"${it[1]} ${it[2]}"}}"
+            Glide.with(this)
+                .load(ActiveUser.getAvatar())
+                .apply(RequestOptions.skipMemoryCacheOf(true)) // Не кэшировать изображение в памяти
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE)) // Не кэшировать изображение на диске
+                .into(accIcon!!)
+        }
+        else{
+            greeting?.text = "Добрый день"
+        }
+    }
+
     private fun account(){
         val intent: Intent = if (ActiveUser.getUser() != null) Intent(activity, RegisterActivity::class.java)
         else Intent(activity, LoginActivity::class.java)
