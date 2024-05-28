@@ -1,5 +1,6 @@
 package com.example.fercstroy.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +10,11 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.fercstroy.R
+import com.example.fercstroy.*
 
 class FragmentMain : Fragment() {
+
+    private var standart: LinearLayout? = null
 
     private val logos = intArrayOf(
         R.drawable.logo_belorusneft,
@@ -31,6 +34,12 @@ class FragmentMain : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         ourProjects = view.findViewById(R.id.our_projects)
+        standart = view.findViewById(R.id.main_standart)
+
+        standart?.setOnClickListener {
+            val intent: Intent = Intent(requireActivity(), StandartActivity::class.java)
+            startActivity(intent)
+        }
 
         for (logo in logos) {
             val itemLayout = LinearLayout(requireContext()).apply {

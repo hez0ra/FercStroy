@@ -23,6 +23,7 @@
 
         <!-- Series S -->
         <LinearLayout
+            android:id="@+id/main_standart"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
@@ -52,6 +53,7 @@
 
         <!-- Series H -->
         <LinearLayout
+            android:id="@+id/main_hygiene"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
@@ -82,6 +84,7 @@
 
         <!-- Series W -->
         <LinearLayout
+            android:id="@+id/main_pool"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
@@ -111,6 +114,7 @@
 
         <!-- Series P -->
         <LinearLayout
+            android:id="@+id/main_suspend"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"

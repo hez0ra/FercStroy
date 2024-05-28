@@ -63,8 +63,8 @@ class FragmentHeader : Fragment() {
     }
 
     private fun account(){
-        val intent: Intent = if (ActiveUser.getUser() != null) Intent(activity, RegisterActivity::class.java)
-        else Intent(activity, LoginActivity::class.java)
+        val intent: Intent = if (ActiveUser.getUser() != null) Intent(requireActivity(), RegisterActivity::class.java)
+        else Intent(requireActivity(), LoginActivity::class.java)
         startActivity(intent)
     }
 
