@@ -10,15 +10,15 @@
         android:layout_height="25dp"
         android:src="@drawable/icon_arrow_drop_down"
         android:padding="4dp"
-        android:layout_marginStart="4dp"/>
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="4dp"/>
 
     <TextView
         android:id="@+id/groupTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="20dp"
         android:textSize="18sp"
         android:text="Text"
-        android:textColor="@android:color/white"
- />
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"/>
 </LinearLayout>

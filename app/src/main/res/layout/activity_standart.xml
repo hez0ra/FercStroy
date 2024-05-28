@@ -83,7 +83,7 @@
             android:text="Сферы применения"
             android:textColor="@color/white"
             android:layout_gravity="center"
-            android:textSize="18sp"/>
+            android:textSize="22sp"/>
 
 
         <GridLayout
@@ -160,6 +160,34 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:groupIndicator="@null" />
+
+        <ImageView
+            android:id="@+id/standart_size_1"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/standart_size_1"
+            android:paddingHorizontal="8dp"/>
+
+        <ImageView
+            android:id="@+id/standart_size_2"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/standart_size_2"
+            android:paddingHorizontal="8dp"/>
+
+        <ImageView
+            android:id="@+id/standart_size_3"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/standart_size_3"
+            android:paddingHorizontal="8dp"/>
+
+        <ImageView
+            android:id="@+id/standart_size_universal"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:src="@drawable/size_universal"
+            android:paddingHorizontal="8dp"/>
 
         <Button
             android:id="@+id/orderButton"

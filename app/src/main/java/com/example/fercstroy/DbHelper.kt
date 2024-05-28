@@ -24,6 +24,14 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         private const val ADMINS_ID = "id"
         private const val ADMINS_USER_ID = "user_id"
         private const val ADMINS_ATTACH_CREATE = "attach_create"
+
+        // Таблица заявок
+        private const val TABLE_REQUESTS = "requests"
+        private const val REQUEST_ID = "id"
+        private const val REQUEST_FIO = "fio"
+        private const val REQUEST_PHONE = "phone"
+        private const val REQUEST_EMAIL = "email"
+        private const val REQUEST_TYPE = "type"
     }
 
 
@@ -48,6 +56,21 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
             FOREIGN KEY ($ADMINS_USER_ID) REFERENCES $TABLE_USERS($USER_ID) ON DELETE CASCADE)
             """.trimIndent()
         db.execSQL(query)
+
+        query = "INSERT INTO $TABLE_USERS ($USER_FIO, $USER_EMAIL, $USER_PASS, $USER_IMAGE) VALUES (?, ?, ?, ?)"
+        val values = arrayOf("admin admin admin", "admin@gmail.com", "admin123", defaultAvatar)
+        db.execSQL(query, values)
+
+        query = """
+            CREATE TABLE $TABLE_REQUESTS (
+            $REQUEST_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            $REQUEST_FIO TEXT, 
+            $REQUEST_PHONE TEXT,
+            $REQUEST_EMAIL TEXT
+            )
+        """.trimMargin()
+        db!!.execSQL(query)
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -96,6 +119,7 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         db.insert(TABLE_USERS, null, values)
         db.close()
     }
+
 
     fun adminCheck(userID: Int): Boolean{
         val db = this.readableDatabase

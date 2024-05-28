@@ -1,8 +1,11 @@
 package com.example.fercstroy
 
+import android.app.DialogFragment
 import android.os.Bundle
 import android.view.View
+import android.view.ViewTreeObserver
 import android.widget.ExpandableListView
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fercstroy.adapters.Feature
@@ -12,6 +15,12 @@ import com.example.fercstroy.adapters.MyExpandableListAdapter
 class StandartActivity : AppCompatActivity() {
 
     var recycler: RecyclerView? = null
+    var size1: ImageView? = null
+    var size2: ImageView? = null
+    var size3: ImageView? = null
+    var sizeUniversal: ImageView? = null
+
+
     private lateinit var expandableListView: ExpandableListView
     private lateinit var adapter: MyExpandableListAdapter
     private lateinit var groupList: List<String>
@@ -23,23 +32,52 @@ class StandartActivity : AppCompatActivity() {
 
         recycler = findViewById(R.id.standart_recycler)
         expandableListView = findViewById(R.id.standart_expandable_list_view)
+        size1 = findViewById(R.id.standart_size_1)
+        size2 = findViewById(R.id.standart_size_2)
+        size3 = findViewById(R.id.standart_size_3)
+        sizeUniversal = findViewById(R.id.standart_size_universal)
 
         prepareListData()
 
         adapter = MyExpandableListAdapter(this, groupList, itemList)
         expandableListView.setAdapter(adapter)
 
-        // Установить начальную высоту
-        setListViewHeightBasedOnChildren(expandableListView)
+        // Развернуть все группы
+        for (i in 0 until adapter.groupCount) {
+            expandableListView.expandGroup(i)
+        }
+
+        // Установить начальную высоту после полной отрисовки элементов
+        expandableListView.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                expandableListView.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                setListViewHeightBasedOnChildren(expandableListView)
+            }
+        })
 
         // Добавить слушателей для пересчета высоты
-        expandableListView.setOnGroupExpandListener {
-            setListViewHeightBasedOnChildren(expandableListView)
+        expandableListView.setOnGroupExpandListener { groupPosition ->
+            // Закрыть все другие группы, если нужно
+            for (i in 0 until adapter.groupCount) {
+                if (i != groupPosition) {
+                    expandableListView.collapseGroup(i)
+                }
+            }
+            expandableListView.post {
+                setListViewHeightBasedOnChildren(expandableListView)
+            }
         }
 
         expandableListView.setOnGroupCollapseListener {
-            setListViewHeightBasedOnChildren(expandableListView)
+            expandableListView.post {
+                setListViewHeightBasedOnChildren(expandableListView)
+            }
         }
+
+        for (i in 0 until adapter.groupCount) {
+            expandableListView.collapseGroup(i)
+        }
+
 
         val features = listOf(
             Feature("Вентиляторы с EC и AC моторами", "Вентиляторы одиночной и групповой установки с AC- и EC- двигателями Siemens, ABB, Omec", R.drawable.standart_feature_1),
@@ -78,6 +116,7 @@ class StandartActivity : AppCompatActivity() {
         listView.layoutParams = params
         listView.requestLayout()
     }
+
 
     private fun prepareListData() {
         groupList = listOf(
