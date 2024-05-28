@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
@@ -76,6 +76,90 @@
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сферы применения"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:textSize="18sp"/>
+
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_background"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:text="Офисы"/>
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_background"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:text="Рестораны"/>
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_background"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:text="Магазины"/>
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_background"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:text="Склады"/>
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_background"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:text="Торговые центры"/>
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_background"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:text="Общественные объекты"/>
+
+        </GridLayout>
+
+        <ExpandableListView
+            android:id="@+id/standart_expandable_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:groupIndicator="@null" />
 
         <Button
             android:id="@+id/orderButton"
