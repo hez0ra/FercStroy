@@ -9,14 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.fercstroy.ActiveUser
-import com.example.fercstroy.DbHelper
-import com.example.fercstroy.R
-import com.example.fercstroy.User
+import com.example.fercstroy.*
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -38,7 +36,9 @@ class FragmentContacts : Fragment() {
     var fio: EditText? = null
     var email: EditText? = null
     var phone: EditText? = null
+    var checkBox: CheckBox? = null
     var btnSend: Button? = null
+    lateinit var dbHelper: DbHelper
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,6 +51,8 @@ class FragmentContacts : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        dbHelper = DbHelper(requireContext(), null)
+
         mapView = view.findViewById(R.id.contacts_map)
         instagram = view.findViewById(R.id.contacts_instagram)
         telegram = view.findViewById(R.id.contacts_telegram)
@@ -61,6 +63,7 @@ class FragmentContacts : Fragment() {
         email = view.findViewById(R.id.contacts_email)
         phone = view.findViewById(R.id.contacts_phone)
         btnSend = view.findViewById(R.id.contacts_button_send)
+        checkBox = view.findViewById(R.id.contacts_checkbox)
 
         if(ActiveUser.getUser() != null){
             val user = ActiveUser.getUser()
@@ -95,17 +98,22 @@ class FragmentContacts : Fragment() {
             val Phone: String = phone?.text.toString().replace(" ", "")
             val Email: String = email?.text.toString().trim()
             if (Fio == "" || Email == "" || Phone == "") {
-                Toast.makeText(requireContext(), "Заполните все поля", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "Заполните все поля", Toast.LENGTH_SHORT).show()
             } else if (!isValidFio(Fio)) {
                 fio?.error = "Введите ФИО в формате `Иванов Иван Иванович`"
             } else if (!isValidEmail(Email)) {
                 phone?.error = "Некорректный email"
             } else if (!isValidPhone(Phone)) {
                 email?.error = "Введите номер телефона в формате `+375291234568`"
-            } else {
+            } else if(!checkBox!!.isChecked){
+                Toast.makeText(requireContext(), "Необходимо согласие на обработку данных", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                dbHelper.addRequest(Request(Fio, Phone, Email, "none"))
                 fio!!.text.clear()
                 phone!!.text.clear()
                 email!!.text.clear()
+                Toast.makeText(requireContext(), "Заявка успешно отправлена", Toast.LENGTH_LONG).show()
             }
 
         }

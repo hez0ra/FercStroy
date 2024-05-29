@@ -66,7 +66,8 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
             $REQUEST_ID INTEGER PRIMARY KEY AUTOINCREMENT,
             $REQUEST_FIO TEXT, 
             $REQUEST_PHONE TEXT,
-            $REQUEST_EMAIL TEXT
+            $REQUEST_EMAIL TEXT,
+            $REQUEST_TYPE TEXT
             )
         """.trimMargin()
         db!!.execSQL(query)
@@ -118,6 +119,60 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         val db = this.writableDatabase
         db.insert(TABLE_USERS, null, values)
         db.close()
+    }
+
+    fun deleteUser(userID: Int){
+        val db = this.writableDatabase
+        val selection = "$USER_ID = ?"
+        val selectionArgs = arrayOf(userID.toString())
+        db.delete(TABLE_USERS, selection, selectionArgs)
+        db.close()
+    }
+
+    fun addRequest(request: Request){
+        val values = ContentValues()
+        values.put(REQUEST_FIO, request.fio)
+        values.put(REQUEST_PHONE, request.phone)
+        values.put(REQUEST_EMAIL, request.email)
+        values.put(REQUEST_TYPE, request.type)
+
+        val db = this.writableDatabase
+        db.insert(TABLE_REQUESTS, null, values)
+        db.close()
+    }
+
+    fun removeRequest(request: Request){
+        val db = this.writableDatabase
+        val selection = "$REQUEST_ID = ?"
+        val selectionArgs = arrayOf(request.id.toString())
+        db.delete(TABLE_REQUESTS, selection, selectionArgs)
+        db.close()
+    }
+
+    fun getAllRequests(): ArrayList<Request>{
+        val requestList = arrayListOf<Request>()
+        val db = this.readableDatabase
+        var offset = 0
+        val limit = 10
+
+        while(true){
+            val result = db.rawQuery("SELECT * FROM $TABLE_REQUESTS LIMIT $limit OFFSET $offset", null)
+            if(result.moveToFirst()) {
+                do {
+                    val id = result.getInt(result.getColumnIndexOrThrow(REQUEST_ID))
+                    val fio = result.getString(result.getColumnIndexOrThrow(REQUEST_FIO))
+                    val phone = result.getString(result.getColumnIndexOrThrow(REQUEST_PHONE))
+                    val email = result.getString(result.getColumnIndexOrThrow(REQUEST_EMAIL))
+                    val type = result.getString(result.getColumnIndexOrThrow(REQUEST_TYPE))
+                    requestList.add(Request(id, fio, phone, email, type))
+                } while(result.moveToNext())
+            }
+            else{
+                break
+            }
+            offset += limit
+        }
+        return requestList
     }
 
 
